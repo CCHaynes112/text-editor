@@ -1,6 +1,7 @@
 <template>
   <div>
-    <textarea v-model="textInput" id="document" name="document" :style="textAreaStyle"></textarea>
+    <p>{{selectedText}}</p>
+    <textarea @mouseup="onMouseUp" @keyup="onMouseUp" v-model="textInput" id="document" name="document" :style="textAreaStyle"></textarea>
   </div>
 </template>
 
@@ -11,6 +12,7 @@ export default {
   data() {
     return {
       textInput: "",
+      selectedText: "",
     };
   },
   computed: {
@@ -23,6 +25,13 @@ export default {
         textDecoration: this.$store.state.fontUnderline ? "underline" : "none",
       };
     },
+  },
+  methods: {
+    onMouseUp() {
+      console.log("Mouse/key up");
+      const selection = window.getSelection()
+      this.selectedText = selection.toString();
+    }
   },
 };
 </script>

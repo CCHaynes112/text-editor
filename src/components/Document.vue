@@ -1,6 +1,6 @@
 <template>
   <div>
-    <textarea v-model="textInput" id="document" name="document"> </textarea>
+    <textarea v-model="textInput" id="document" name="document" :style="textAreaStyle"></textarea>
   </div>
 </template>
 
@@ -12,6 +12,17 @@ export default {
     return {
       textInput: "",
     };
+  },
+  computed: {
+    textAreaStyle() {
+      return {
+        fontSize: `${this.$store.state.fontSize}px`,
+        fontFamily: this.$store.state.font,
+        fontWeight: this.$store.state.fontBold ? "bold" : "normal",
+        fontStyle: this.$store.state.fontItalic ? "italic" : "normal",
+        textDecoration: this.$store.state.fontUnderline ? "underline" : "none",
+      };
+    },
   },
 };
 </script>

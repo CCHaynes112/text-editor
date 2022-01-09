@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div class="toolbar">
-      <v-btn icon color="pink">
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-    </div>
     <div class="document-container">
       <Document class="document" />
     </div>
@@ -29,15 +24,6 @@ export default {
 </script>
 
 <style scoped>
-.toolbar {
-  background-color: #f5f5f5;
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
 .document-container {
   display: flex;
   justify-content: center;
